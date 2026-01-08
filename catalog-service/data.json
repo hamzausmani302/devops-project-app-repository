@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Image Generation",
+    "price": "8",
+    "currency": "AED"
+  },
+  {
+    "id": "2",
+    "name": "Video Generation",
+    "price": "8",
+    "currency": "AED"
+  },
+  {
+    "id": "3",
+    "name": "Text Summarizer",
+    "price": "10",
+    "currency": "AED"
+  },
+  {
+    "id": "4",
+    "name": "Audio Generation",
+    "price": "20",
+    "currency": "AED"
+  }
+]

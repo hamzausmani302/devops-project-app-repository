@@ -1,0 +1,6 @@
+fastapi[standard]
+starlette
+requests
+pika
+pydantic
+pydantic_settings
