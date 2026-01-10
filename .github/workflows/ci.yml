@@ -1,0 +1,13 @@
+name: Continious integration
+on:
+  push: 
+
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        $changed=$(git diff --name-only HEAD~1 HEAD)
+        echo $changed
+  
