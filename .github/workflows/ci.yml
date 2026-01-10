@@ -12,6 +12,9 @@ jobs:
         fetch-depth: 0   # fetch all commits
     - run: |
         git diff --name-only HEAD~1 HEAD | while IFS= read -r file; do
+            if [[ "$file" == *.ver ]]; then
+                echo "Changed file: $file"
+            fi
             echo "Changed file: $file"
         done
           
