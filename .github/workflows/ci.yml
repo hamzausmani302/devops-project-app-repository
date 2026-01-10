@@ -34,6 +34,10 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
     steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0   # fetch all commits
+
     - name: download changed files
       uses: actions/download-artifact@v4.0.0
       with:
@@ -41,9 +45,6 @@ jobs:
         name: changed # optional
         # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
         path: artifacts # optional
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0   # fetch all commits
     - run: |
         ls artifacts
         mkdir images
