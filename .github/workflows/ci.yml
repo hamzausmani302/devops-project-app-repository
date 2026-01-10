@@ -41,5 +41,6 @@ jobs:
         name: changed # optional
         # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
         path: changed.txt # optional
-      
+    - run: |
+        cat changed.txt
         
