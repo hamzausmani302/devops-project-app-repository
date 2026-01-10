@@ -15,6 +15,5 @@ jobs:
             if [[ "$file" == *.ver ]]; then
                 echo "Changed file: $file"
             fi
-            echo "Changed file: $file"
         done
           
