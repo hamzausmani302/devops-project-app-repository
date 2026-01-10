@@ -40,7 +40,8 @@ jobs:
         # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
         name: changed # optional
         # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
-        path: changed.txt # optional
+        path: artifacts # optional
     - run: |
-        cat changed.txt
+        ls artifacts
+        cat artifacts/changed.txt
         
