@@ -1,3 +1,5 @@
+![CI](https://github.com/hamzausmani302/devops-project-app-repository/actions/workflows/ci.yml/badge.svg)
+
 # GenStore
 
 A dummy appliction that allows user to generate videos/images and other cool stuff.
