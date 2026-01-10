@@ -11,13 +11,31 @@ jobs:
       with:
         fetch-depth: 0   # fetch all commits
     - run: |
+        output_file="changed.txt"
         git diff --name-only HEAD~1 HEAD | while IFS= read -r file; do
             if [[ "$file" == *.ver ]]; then
                 echo "Changed file: $file"
                 service_name=$(echo "$file" | cut -d'/' -f1)
-            fi
-            
-            service_name=$(echo "$file" | cut -d'/' -f1)
-            echo $service_name
+                echo $service_name >> $output_file
+            fi    
         done
-          
+        pwd
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v6.0.0
+      with:
+        # Artifact name
+        name: changed.txt  # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: changed.txt
+  push-services:
+    runs-on: ubuntu-latest
+    steps:
+    - name: download changed files
+      uses: actions/download-artifact@v7.0.0
+      with:
+        # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+        name: changed.txt # optional
+        # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
+        path: # optional
+      
+        
