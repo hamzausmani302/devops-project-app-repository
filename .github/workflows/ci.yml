@@ -58,5 +58,6 @@ jobs:
               git push origin $TAG_NAME
             fi
         done < artifacts/changed.txt
+        ls images
 
         
