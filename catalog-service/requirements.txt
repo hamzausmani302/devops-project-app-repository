@@ -4,3 +4,4 @@ requests
 pika
 pydantic
 pydantic_settings
+pytest
