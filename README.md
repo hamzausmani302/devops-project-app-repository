@@ -6,7 +6,7 @@ It an application developed to learn about the implementation of best devops pra
 use.
 
 ## Architecture
-
+![alt text](image.png)
 
 ## Componenets
 - UI (Nginx service that services static/dynamic content)
