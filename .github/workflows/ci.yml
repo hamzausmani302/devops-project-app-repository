@@ -63,5 +63,12 @@ jobs:
             fi
         done < artifacts/changed.txt
         ls images
+    - name: Upload Images
+      uses: actions/upload-artifact@v4.0.0
+      with:
+        # Artifact name
+        name: images  # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: images
 
         
