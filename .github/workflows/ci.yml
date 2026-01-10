@@ -24,7 +24,7 @@ jobs:
         ls
         echo $GITHUB_WORKSPACE
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v6.0.0
+      uses: actions/upload-artifact@v4.0.0
       with:
         # Artifact name
         name: changed  # optional, default is artifact
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: download changed files
-      uses: actions/download-artifact@v7.0.0
+      uses: actions/download-artifact@v4.0.0
       with:
         # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
         name: changed # optional
