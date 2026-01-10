@@ -29,7 +29,7 @@ jobs:
         # Artifact name
         name: changed  # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
-        path: $GITHUB_WORKSPACE/changed.txt
+        path: changed.txt
   push-services:
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +39,6 @@ jobs:
         # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
         name: changed # optional
         # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
-        path: $GITHUB_WORKSPACE/changed.txt # optional
+        path: changed.txt # optional
       
         
