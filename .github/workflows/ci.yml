@@ -20,7 +20,6 @@ jobs:
                 echo $service_name >> $output_file
             fi    
         done
-        ls
         cat $ouptut_file
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.0.0
