@@ -56,7 +56,7 @@ jobs:
               echo "Building service: $line"
               docker build -t $TAG_NAME $line/
               docker save -o images/$TAG_NAME.tar $TAG_NAME
-              git tag $TAG_NAME
+              git tag $line/$TAG_NAME
               git push origin $line/$TAG_NAME
             fi
         done < artifacts/changed.txt
