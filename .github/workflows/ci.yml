@@ -44,7 +44,9 @@ jobs:
     - run: |
         ls artifacts
         while IFS= read -r line; do
-            echo "Changed services: $line"
+            if [[ $line != "" ]]; then
+              echo "Changed services: $line"
+            fi
         done < artifacts/changed.txt
 
         
