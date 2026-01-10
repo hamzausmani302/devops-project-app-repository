@@ -43,9 +43,8 @@ jobs:
         path: artifacts # optional
     - run: |
         ls artifacts
-        changed=$(cat artifacts/changed.txt)
         while IFS= read -r line; do
             echo "Changed services: $line"
-        done < changed.txt
+        done < artifacts/changed.txt
 
         
