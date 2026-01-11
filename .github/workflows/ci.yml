@@ -63,6 +63,11 @@ jobs:
             fi
         done < artifacts/changed.txt
         ls images
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+       username: ${{ secrets.DOCKER_HUB_USERNAME }}
+       password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     - name: Upload Images
       uses: actions/upload-artifact@v4.0.0
       with:
