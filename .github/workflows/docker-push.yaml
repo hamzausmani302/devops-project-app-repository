@@ -1,4 +1,4 @@
-name: Continious integration
+name: Push image
 on:
   workflow_dispatch:
 
