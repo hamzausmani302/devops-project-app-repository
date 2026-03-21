@@ -27,6 +27,7 @@ function getVersion(){
 }
 
 function getProducts() {
+  getVersion()
   fetch(`${CATALOG_SERVICE_URL}/products`, {
     headers: {
       Authorization: getAuthToken(),
