@@ -1,0 +1,23 @@
+name: Push image
+on:
+  workflow_dispatch:
+
+jobs:
+
+  push-services:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0   # fetch all commits
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3.6.0
+      with:
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+        username: ${{ vars.DOCKER_HUB_USERNAME }}
+        
