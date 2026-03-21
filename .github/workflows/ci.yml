@@ -62,8 +62,8 @@ jobs:
               TAG_NAME=$ver
               echo "Changed services: $line"
               echo "Building service: $line"
-              docker build -t $TAG_NAME $line/
-              docker save -o images/$line-$TAG_NAME.tar $TAG_NAME
+              docker build -t ${{ vars.DOCKER_HUB_USERNAME }}/$line:$TAG_NAME $line/
+              docker save -o images/$line-$TAG_NAME.tar ${{ vars.DOCKER_HUB_USERNAME }}/$line:$TAG_NAME
               docker push ${{ vars.DOCKER_HUB_USERNAME }}/$line:$TAG_NAME 
               git tag $line/$TAG_NAME
               git push origin $line/$TAG_NAME
