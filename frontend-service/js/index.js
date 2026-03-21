@@ -1,10 +1,29 @@
 // Get catalog service URL from environment variable
 const CATALOG_SERVICE_URL = window.__ENV__["CATALOG_SERVICE_URL"];
+const VERSION_URL = window.__ENV__["VERSION_PATH"]
 
 function getAuthToken() {
   const key = "auth_token";
   const token = localStorage.getItem(key);
   return token;
+}
+
+function getVersion(){
+  fetch(VERSION_URL, {
+    headers: {
+      Authorization: getAuthToken(),
+      "Access-Control-Allow-Origin": "*", 
+    }
+  })
+  .then(response => response.text)
+  .then((response) =>{
+    document.getElementById("version-box").innerHTML = `
+    <div>
+      <h1>Version = </h1>
+      <p> ${response}</p>
+    </div>
+    `
+  })
 }
 
 function getProducts() {

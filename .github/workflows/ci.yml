@@ -50,6 +50,7 @@ jobs:
     - run: |
         ls artifacts
         mkdir images
+        echo "artifacts/changed.txt"
         while IFS= read -r line; do
             if [[ $line != "" ]]; then
               ver=$(cat $line/.ver)
