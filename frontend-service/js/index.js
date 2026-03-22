@@ -15,11 +15,11 @@ function getVersion(){
       "Access-Control-Allow-Origin": "*", 
     }
   })
-  .then(response => response.text)
+  .then(response => response.text())
   .then((response) =>{
     document.getElementById("version-box").innerHTML = `
     <div>
-      <h1>Version = </h1>
+      <h3>Version = </h3>
       <p> ${response}</p>
     </div>
     `
