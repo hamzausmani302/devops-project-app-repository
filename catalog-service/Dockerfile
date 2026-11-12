@@ -15,4 +15,4 @@ COPY . /app
 
 EXPOSE 8000
 
-CMD ["python", "main.py"]
+CMD ["opentelemetry-instrument", "python", "main.py"]
