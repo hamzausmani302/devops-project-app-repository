@@ -2,7 +2,7 @@ pika
 pydantic
 pydantic_settings
 python-dotenv
-
+starlette
 
 opentelemetry-api
 opentelemetry-sdk 

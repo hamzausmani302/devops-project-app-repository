@@ -6,7 +6,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 from contextlib import contextmanager
-
+from typing import Optional
 
 from opentelemetry import trace
 from opentelemetry.trace import SpanKind, Status, StatusCode
@@ -208,10 +208,11 @@ def trace_function(
 
 
 @contextmanager
-def trace_span(name, attributes=None):
+def trace_span(name,  attributes: Optional[dict] = None, span_kind: Optional[SpanKind] = SpanKind.INTERNAL ):
     with tracer.start_as_current_span(
         name,
         attributes=attributes or {},
+        kind=span_kind
     ) as span:
         try:
             yield span

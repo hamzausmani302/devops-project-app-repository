@@ -19,9 +19,12 @@ class RabbitMQPublisher(MessageQueue):
         self.channel = channel
         return channel
     
-    def publish(self, message):
+    def publish(self, message, headers = {}):
         self.channel.basic_publish(exchange=self.exchange, routing_key=self.topic,
-                              body=json.dumps(message).encode())
+                              body=json.dumps(message).encode(),
+                              properties=pika.BasicProperties(
+                                headers=headers
+                            ))
     def consume(self, callback):
         self.channel.basic_consume(queue=self.topic, on_message_callback=callback, auto_ack=True)
 

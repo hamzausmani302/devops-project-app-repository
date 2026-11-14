@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 class MessageQueue(ABC):
     @abstractmethod
-    def publish(self, message):
+    def publish(self, message, headers = {}):
         raise NotImplementedError
     @abstractmethod
     def consume(self, callback):
