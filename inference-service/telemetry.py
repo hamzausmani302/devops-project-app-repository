@@ -6,7 +6,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 from contextlib import contextmanager
-
+from typing import Optional
 
 from opentelemetry import trace
 from opentelemetry.trace import SpanKind, Status, StatusCode
@@ -137,9 +137,9 @@ def trace_function(
 @contextmanager
 def trace_span(
     name: str,
-    attributes: dict | None = None,
-    span_kind: SpanKind = SpanKind.INTERNAL,
-    parent_context: Context | None = None,
+    attributes: Optional[dict] = None,
+    span_kind: Optional[SpanKind] = SpanKind.INTERNAL,
+    parent_context: Optional[Context]  = None,
 ):
     with tracer.start_as_current_span(
         name,
