@@ -2,12 +2,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from catalog_service.api.api_router_definition import router
 from catalog_service.core.middlewares.auth_middleware import AuthMiddleware
+from catalog_service.telemetry import OpenTelemetryTracingMiddleware, configure_opentelemetry
 from config import settings
+
 app = FastAPI()
+provider = configure_opentelemetry(settings)
 origins = [
     "*",
 ]
 app.add_middleware(AuthMiddleware)
+app.add_middleware(OpenTelemetryTracingMiddleware)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,  # List of allowed origins

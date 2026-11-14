@@ -243,7 +243,8 @@ async def verify_token(token: Optional[str] = None):
     Returns:
         User info if token is valid
     """
-    if not token:
+
+    if not token or  token == "null":
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Token required"
