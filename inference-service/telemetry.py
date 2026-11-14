@@ -43,7 +43,7 @@ def configure_opentelemetry(config):
     )
 
     exporter = OTLPSpanExporter(
-        endpoint="localhost:4317",
+        endpoint=config.telemetry.endpoint_url,
         insecure=True,
     )
     # exporter = ConsoleSpanExporter()
