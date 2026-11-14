@@ -21,8 +21,7 @@ def consume(channel, method, properties, body):
     parent_context = extract(headers)
     print(f"Processing order {payload['id']} for user {payload['user_id']} | headers = {headers}")
     # print(method,properties, channel )
-    with trace_span("process_order", {
-        "payload": payload 
+    with trace_span("process_order", { 
     }, SpanKind.CONSUMER, parent_context):
         time.sleep(20)   
         print(f"Processing prodcut id= {payload['product_id']}")
