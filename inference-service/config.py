@@ -11,7 +11,7 @@ class AppConfig(BaseSettings):
     rabbitmq_host: str
     rabbitmq_port: int = 5672
     rabbitmq_topic: str = "orders"
-    telemetry: TelemetryConfig
+    telemetry: TelemetryConfig = TelemetryConfig()
     model_config = {
         "env_file": ".env",
         "env_file_encoding": "utf-8",
